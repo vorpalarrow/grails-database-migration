@@ -29,3 +29,8 @@ grails.project.dependency.resolution = {
 		}
 	}
 }
+grails.project.dependency.distribution = {
+       remoteRepository(id: "csRepo", url: "http://artifactory.poc.currdc.net/artifactory/plugins-release-local"){
+                 authentication username: "",password: ""
+          }
+}
