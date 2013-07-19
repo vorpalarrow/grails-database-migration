@@ -82,10 +82,8 @@ class GormDatabaseSnapshotGenerator implements DatabaseSnapshotGenerator {
 
 					if (hibernateColumn.unique) {
 						// GrailsDomainBinder doesn't register a unique key for single-column unique
-						String indexName = hibernateColumn.name + '_uniq_' + System.currentTimeMillis()
-						if (hibernateColumn.name.equals("business_key")) {
-							indexName = table.getName() + '_'  + indexName
-						}
+						String indexName = table.getName() + '_' + 
+								   hibernateColumn.name + '_uniq_' + System.currentTimeMillis()
 						Index index = new Index(table: table, unique: true,
 						                        name: indexName)
 						index.columns << hibernateColumn.name
